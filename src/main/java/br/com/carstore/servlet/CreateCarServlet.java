@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @WebServlet("/create-car")
@@ -21,7 +22,14 @@ public class CreateCarServlet extends HttpServlet {
 
         System.out.println(nomeJson);
 
-        req.getRequestDispatcher("index.html").forward(req,resp);
+        PrintWriter out = resp.getWriter();
 
+        out.println("<h1 style=\"margin-bottom:1em;\"> Json gerado </h1>");
+        out.printf("<p style=\"margin-bottom:2em;\"> %s </p>", nomeJson);
+        out.println("<a href=\"http://localhost:8080/\"> Gerar outro </a>");
+
+        //req.getRequestDispatcher("index.html").forward(req,resp);
     }
 }
+
+
