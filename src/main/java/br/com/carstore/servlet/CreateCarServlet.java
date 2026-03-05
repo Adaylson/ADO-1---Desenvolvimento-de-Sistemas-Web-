@@ -15,8 +15,9 @@ public class CreateCarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String nome = req.getParameter("car-name");
+        String cor  = req.getParameter("car-color");
 
-        String nomeJson = String.format("{\"nome\":\"%s\"}", nome);
+        String nomeJson = String.format("{\"nome\":\"%s\", \"cor\":\"%s\"}", nome, cor);
 
         System.out.println(nomeJson);
 
